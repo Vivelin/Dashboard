@@ -9,6 +9,12 @@
 
 %section.ui.segment.constrained
   != yield
+
+%footer
+  %p
+    %a{ href: 'https://github.com/horsedrowner/Dashboard' }= 'GitHub repository'
+    = '—'
+    %a{ href: 'http://horsedrowner.net/' }= 'horsedrowner.net'
   
 :javascript
   var followedChannels = #{ settings.channels };
