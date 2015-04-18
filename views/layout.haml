@@ -1,0 +1,17 @@
+!!!
+%meta{ charset: 'utf-8' }
+%link{ rel: :stylesheet, type: 'text/css', href: '/assets/semantic.min.css' }
+%link{ rel: :stylesheet, type: 'text/css', href: '/styles/main.css' }
+%link{ rel: :stylesheet, type: 'text/css', href: 'http://fonts.googleapis.com/css?family=Open+Sans:400,600' }
+%title= 'Dashboard'
+
+%h1= 'horsedrowner.net Dashboard'
+
+%section.ui.segment.constrained
+  != yield
+  
+:javascript
+  var followedChannels = #{ settings.channels };
+%script{ src: '/scripts/dashboard.js', defer: true }
+%script{ src: '/assets/jquery-1.11.2.min.js' }
+%script{ src: '/assets/semantic.min.js' }

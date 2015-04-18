@@ -1,0 +1,43 @@
+$twitch-color:          #6441A5
+$twitch-text-color:     #FFF
+$twitch-viewers-color:  rgba(0, 0, 0, 0.5)
+
+.twitch.stream
+    line-height: 1.4
+    background-color: $twitch-color
+    color: $twitch-text-color
+    margin: .5em 0
+    padding: .5em 1em
+    display: inline-block
+    width: 100%
+    position: relative
+
+    a        
+        color: $twitch-text-color
+        padding-right: 4em
+        box-sizing: border-box
+        width: 100%
+        display: inline-block
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        word-break: break-all
+        word-wrap: break-word
+    strong
+        font-weight: 600
+    em
+        font-style: normal
+        opacity: .5
+
+    .icon
+        line-height: 1.55em
+        margin-left: -.15em
+    .viewers
+        position: absolute
+        right: 1em
+        background-color: $twitch-viewers-color
+        font-size: .8em
+        padding: .25em .5em
+
+.twitch.stream:hover
+    opacity: .8
