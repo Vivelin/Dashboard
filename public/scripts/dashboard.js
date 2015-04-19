@@ -9,22 +9,15 @@
         "new": "Just started streaming!",
         "recent": "Recently started streaming!",
         "playing": "streaming",
-        "nonelive": "Nobody is streaming right now."
+        "nonelive": "Nobody is streaming right now.",
+        "topstreams": "Instead, here are some of the most popular streams right now:"
     };
     
     /**
      * Renders a Twitch API stream object as an HTML element.
      * @param {Object} stream A Twitch API stream object.
      */
-    function renderStream(stream, opt) {
-        var defaults = {
-            flavors: {
-                "yellow asterisk icon": (15 * minutes),
-                "asterisk icon": (30 * minutes)
-            }
-        };
-        $.extend(opt, defaults);
-
+    function renderStream(stream) {
         var isFucked = !stream.channel.hasOwnProperty("status"),
             url = stream.channel.url
                 || "http://www.twitch.tv/" + stream.channel.name,
@@ -89,11 +82,14 @@
      *        channels to display.
      * @param {Number} [interval=60000] The interval between status update 
      *        calls in milliseconds.
+     * @param {Boolean} [suggest=true] A value indicating whether to suggest top
+     *        streams if no followed channels are live.
      * @returns {Number} A numerical id which can be used later with 
      *          `clearInterval`.
      */
-    function beginUpdateStreams(channels, interval, opt) {
+    function beginUpdateStreams(channels, interval, suggest) {
         interval = interval || 60000;
+        suggest = suggest !== false; // Suggest top streams only if not explicitly false
 
         function update() {
             var url = "https://api.twitch.tv/kraken/streams/"
@@ -109,11 +105,28 @@
 
                 if (data.streams && data.streams.length > 0) {
                     $.each(data.streams, function (index, stream) {
-                        var $stream = renderStream(stream, opt);
+                        var $stream = renderStream(stream);
                         $twitch.append($stream);
                     });
                 } else {
-                    $twitch.append(strings.nonelive);
+                    var $msgNoStreams = $("<p>", { text: strings.nonelive });
+                    $twitch.append($msgNoStreams);
+
+                    if (suggest) {
+                        var url = "https://api.twitch.tv/kraken/streams"
+                                + "?limit=8&callback=?";
+                        $.getJSON(url, function (data) {
+                            if (data.streams && data.streams.length > 0) {
+                                var $msgSuggest = $("<p>", { text: strings.topstreams });
+
+                                $twitch.append($msgSuggest);
+                                $.each(data.streams, function (index, stream) {
+                                    var $stream = renderStream(stream);
+                                    $twitch.append($stream);
+                                });
+                            }
+                        });
+                    }
                 }
             });
         }
