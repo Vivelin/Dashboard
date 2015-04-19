@@ -82,3 +82,5 @@ $RECYCLE.BIN/
 
 .sass-cache/
 config/
+logs/
+
