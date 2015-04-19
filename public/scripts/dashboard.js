@@ -89,7 +89,6 @@
      */
     function beginUpdateStreams(channels, interval, suggest) {
         interval = interval || 60000;
-        suggest = suggest !== false; // Suggest top streams only if not explicitly false
 
         function update() {
             var url = "https://api.twitch.tv/kraken/streams/"
