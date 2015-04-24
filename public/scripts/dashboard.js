@@ -62,8 +62,10 @@
 
         $status.append($icon);
         $status.append($name);
-        $status.append(" " + strings.playing + " ");
-        $status.append($game);
+        if (stream.game) {
+            $status.append(" " + strings.playing + " ");
+            $status.append($game);
+        }
         if (!isFucked) {
             $status.append(": ");
             $status.append($title);
