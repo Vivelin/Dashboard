@@ -2,6 +2,15 @@ $twitch-color:          #6441A5
 $twitch-text-color:     #FFF
 $twitch-viewers-color:  rgba(0, 0, 0, 0.5)
 
+section.twitch
+    background-color: #9b59b6
+
+    h2
+        background-color: #8e44ad
+
+    #twitch
+        margin-right: 1.5em
+
 .twitch.stream
     background-color: $twitch-color
     color: $twitch-text-color
@@ -44,3 +53,11 @@ $twitch-viewers-color:  rgba(0, 0, 0, 0.5)
 
 .twitch.stream:hover
     opacity: .8
+
+// Transparent variation - no background color, less padding
+.transparent.twitch.stream
+    background-color: transparent
+    padding: 0 1em
+
+.transparent.twitch.stream:hover
+    opacity: .5

@@ -23,7 +23,7 @@
                 || "http://www.twitch.tv/" + stream.channel.name,
             startDate = new Date(stream.created_at),
             timeLive = Date.now() - startDate.getTime(),
-            $div = $("<div>", { "class": "live twitch stream" }),
+            $div = $("<div>", { "class": "live transparent twitch stream" }),
             $status = $("<a>", {
                 "href": url,
                 "title": stream.channel.status

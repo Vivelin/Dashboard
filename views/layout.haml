@@ -1,23 +1,25 @@
 !!!
 %meta{ charset: 'utf-8' }
-%link{ rel: :stylesheet, type: 'text/css', href: '/assets/semantic.min.css' }
+%link{ rel: :stylesheet, type: 'text/css', href: '/assets/semantic/icon.min.css' }
 %link{ rel: :stylesheet, type: 'text/css', href: '/styles/main.css' }
-%link{ rel: :stylesheet, type: 'text/css', href: 'http://fonts.googleapis.com/css?family=Open+Sans:400,600' }
+%link{ rel: :stylesheet, type: 'text/css', href: '//fonts.googleapis.com/css?family=Open+Sans:400,600' }
 %title= 'Dashboard'
 
-%h1= 'horsedrowner.net Dashboard'
+%header
+  %h1= 'Dashboard'
 
-%section.ui.segment.constrained
+%section.twitch
   != yield
 
 %footer
-  %p
-    %a{ href: 'https://github.com/horsedrowner/Dashboard' }= 'GitHub repository'
-    = '—'
-    %a{ href: 'http://horsedrowner.net/' }= 'horsedrowner.net'
+  %section.about
+    %h2= 'About'
+    %p
+      %a{ href: 'https://github.com/horsedrowner/Dashboard' }= 'GitHub repository'
+      = '—'
+      %a{ href: 'http://horsedrowner.net/' }= 'horsedrowner.net'
   
 :javascript
   var followedChannels = #{ settings.channels };
 %script{ src: '/scripts/dashboard.js', defer: true }
 %script{ src: '/assets/jquery-1.11.2.min.js' }
-%script{ src: '/assets/semantic.min.js' }
