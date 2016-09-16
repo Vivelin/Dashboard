@@ -80,7 +80,7 @@
     $.ajax({
       url: url,
       type: 'GET',
-      beforeSend: function (xhr) { xhr.setHeader('Client-ID', clientID) },
+      headers: { 'Client-ID': clientID },
       success: function (data) {
         callback($.parseJSON(data))
       }
