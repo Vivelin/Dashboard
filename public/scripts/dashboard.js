@@ -81,7 +81,7 @@
       url: url,
       type: 'GET',
       headers: {
-        'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'Client-ID': clientID
       },
       success: callback
