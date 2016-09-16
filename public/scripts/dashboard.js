@@ -80,10 +80,9 @@
     $.ajax({
       url: url,
       type: 'GET',
+      dataType: 'jsonp',
       headers: { 'Client-ID': clientID },
-      success: function (data) {
-        callback($.parseJSON(data))
-      }
+      success: callback
     })
   }
 
