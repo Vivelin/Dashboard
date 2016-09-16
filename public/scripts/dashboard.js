@@ -80,7 +80,10 @@
     $.ajax({
       url: url,
       type: 'GET',
-      headers: { 'Client-ID': clientID },
+      headers: {
+        'Content-Type': 'application/json',
+        'Client-ID': clientID
+      },
       success: callback
     })
   }
