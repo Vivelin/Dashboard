@@ -103,9 +103,7 @@
     interval = interval || 60000
 
     function update () {
-      var url = 'https://api.twitch.tv/kraken/streams/' +
-        '?channel=' + channels.join() +
-        '&callback=?' // Fuck browsers.
+      var url = 'https://api.twitch.tv/kraken/streams/?channel=' + channels.join()
 
       $('#home-twitch-updating').show()
       getJSON(url, function (data) {
