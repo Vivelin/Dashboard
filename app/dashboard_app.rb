@@ -17,6 +17,7 @@ class DashboardApp < Sinatra::Base
 
       config = YAML.load_file('config/application.yml')
       set :channels, config['channels'] || []
+      set :clientID, config['clientID'] || ''
     end
 
     get '/styles/:style.css' do

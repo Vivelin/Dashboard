@@ -17,11 +17,12 @@
   %section.about
     %h2= 'About'
     %p
-      %a{ href: 'https://github.com/horsedrowner/Dashboard' }= 'GitHub repository'
+      %a{ href: 'https://s.vivelin.net/' }= 'Images'
       = '—'
-      %a{ href: 'http://horsedrowner.net/' }= 'horsedrowner.net'
+      %a{ href: 'http://vivelin.net/' }= 'Vivelin.net'
   
 :javascript
   var followedChannels = #{ settings.channels };
+  var clientID = #{ settings.clientID };
 %script{ src: '/scripts/dashboard.js', defer: true }
 %script{ src: '/assets/jquery-1.11.2.min.js' }
