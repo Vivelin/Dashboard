@@ -32,7 +32,7 @@
       'title': strings.live
     })
     var $name = $('<strong>', {
-      'text': stream.channel.display_name
+      'text': stream.channel.display_name.replace('_', ' ')
     })
     var $game = $('<strong>', {
       'text': stream.game
